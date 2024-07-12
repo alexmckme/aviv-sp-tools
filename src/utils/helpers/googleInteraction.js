@@ -109,6 +109,22 @@ export async function createNewGoogleSheet(fileName, driveId) {
             .create({
             resource: fileMetaData,
         })
+
+        const gsheet = google.sheets({version: "v4", auth: autorisation})
+        const res_update_locale = await gsheet.spreadsheets.batchUpdate({
+            spreadsheetId: res.data.id,
+            requestBody: {
+                requests: [{
+                    updateSpreadsheetProperties: {
+                        properties: {
+                            locale: "fr_FR"
+                        },
+                        fields: "locale"
+                    }
+                }]
+            }
+        })
+
         console.log("New spreadsheet created")
         const majTabId = await createNewTab(res.data.id, ">> Infos Màj Extracts <<")
         console.log("New tab created")

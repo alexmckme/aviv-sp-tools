@@ -7,10 +7,6 @@ import NewExtractForm from "@/components/NewExtractForm";
 export default function NewExtractConfigurationPage() {
 
 
-
-
-
-
     return (
         <>
             <PageProtection/>
