@@ -70,6 +70,39 @@ export async function createNewCoeffectiveExtractSF(chosenSystem, salesforceRepo
     }
 }
 
+export async function createNewCoeffectiveExtractTableau(datasourceName, gsheetId, ongletId, startingHour, endingHour) {
+    const supabase = createClient()
+    const userData = await getUserData()
+
+    const newExtractData = {
+        extract_type: "flamingo",
+        report_id: datasourceName,
+        gsheet_id: gsheetId,
+        onglet_id: ongletId,
+        frequency: "Tous les jours",
+        starting_hour: startingHour,
+        ending_hour: endingHour,
+        user_id: userData.id
+    }
+
+    const { data, error } = await supabase
+        .from("coeffective_extracts")
+        .insert(newExtractData)
+        .select()
+
+    if (error) {
+        console.error(error)
+    }
+
+    if (data) {
+        return {
+            data: data,
+            ok: true
+        }
+    }
+
+}
+
 export async function storeUpdateTabId(gsheetId, majTabId) {
     const supabase = createClient()
     const userData = await getUserData()
@@ -91,4 +124,49 @@ export async function storeUpdateTabId(gsheetId, majTabId) {
         console.log(data)
     }
 
+}
+
+export async function retrieveTableauToken(){
+    const supabase = createClient()
+    const userData = await getUserData()
+
+    const {data,error} = await supabase
+        .from("coeffective_users")
+        .select("*")
+        .eq("email", userData.email)
+
+    if (error) {
+        console.error(error)
+    }
+
+    if (data[0]) {
+        return data[0].tableau_personal_token_name
+    }
+}
+
+export async function updateTableauToken(userFullName, tokenName, tokenValue) {
+    const supabase = createClient()
+    const userData = await getUserData()
+
+    const updatedData = {
+        tableau_user_full_name: userFullName,
+        tableau_personal_token_name: tokenName,
+        tableau_personal_token_value: tokenValue
+    }
+
+    const { data, error } = await supabase
+        .from("coeffective_users")
+        .update(updatedData)
+        .eq("id", userData.id)
+
+    if (error) {
+        console.error(error)
+    }
+
+    if (data) {
+        return {
+            data: data,
+            ok: true
+        }
+    }
 }

@@ -146,7 +146,7 @@ function NewExtractFormSalesforceInfo({ salesforceReportId, setSalesforceReportI
                     </fieldset>
 
                     <fieldset>
-                        <legend>Un nouvel onglet va être créé pour votre extract. Veuillez choisir un nom à cet
+                        <legend>Un nouvel onglet va être créé pour votre extract (sur ce nouveau Gsheet). Veuillez choisir un nom à cet
                             onglet :
                         </legend>
                         <label htmlFor="new-tab-name">Nom du nouvel onglet :</label>
@@ -204,7 +204,7 @@ function NewExtractFormSalesforceInfo({ salesforceReportId, setSalesforceReportI
                         &&
                         <>
                             <fieldset>
-                                <legend>Un nouvel onglet va être créé pour votre extract. Veuillez choisir un nom à cet
+                                <legend>Un nouvel onglet va être créé pour votre extract (sur le Gsheet existant). Veuillez choisir un nom à cet
                                     onglet :
                                 </legend>
                                 <label htmlFor="new-tab-name">Nom du nouvel onglet :</label>

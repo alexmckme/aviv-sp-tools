@@ -15,7 +15,8 @@
     "new-component": "^5.0.2",
     "next": "14.2.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "styled-components": "^6.1.12"
   },
   "devDependencies": {
     "eslint": "^8",
