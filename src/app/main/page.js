@@ -9,7 +9,6 @@ export default async function PrivatePage() {
 
     return (
         <>
-            <PageProtection />
             <div>
                 <h2>Bienvenue sur Aviv SP Tools !</h2>
                 <p>Ce site est conçu afin de vous permettre d'accéder plus facilement à certaines informations, sous une

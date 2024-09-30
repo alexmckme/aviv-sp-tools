@@ -20,6 +20,7 @@ export async function recoverPassword(formData) {
     )
 
     if (error) {
+        console.error(error)
         redirect('/error')
     }
 
