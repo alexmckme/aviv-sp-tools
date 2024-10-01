@@ -16,10 +16,11 @@ export default function CoeffectiveMain() {
                 / Accéder au dossier Google Drive</strong> !</p>
 
             <p><a href="/main/coeffective/new">Créer un nouvel import d'extract</a></p>
-            <p><a href="/main/coeffective/extracts">Gérer les imports existants</a></p>
+            <p><a href="/main/coeffective/manage-tableau-token">Gérer le token de connexion Tableau</a></p>
+            <p><a href="/main/coeffective/extracts">Gérer les fichiers Google Sheets et imports existants</a></p>
             <p><a href="/main/coeffective/drive">Accéder au dossier Google Drive</a></p>
             <PageProtection/>
-            <GoogleDriveChecker />
+            <GoogleDriveChecker/>
         </div>
     )
 }
