@@ -2,9 +2,9 @@ import React from "react"
 import {getListOfGsheets} from "@/utils/helpers/googleInteraction";
 
 
-const listOfGsheets = await getListOfGsheets()
+export default async function ExtractsManager() {
 
-export default function ExtractsManager() {
+    const listOfGsheets = await getListOfGsheets()
 
     return (
         <>
