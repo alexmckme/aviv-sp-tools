@@ -1,95 +1,71 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Link from "next/link"
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    return (
+        <main className={styles.main}>
+            <header className={styles.header}>
+                <Image src="/logo-brand-main.svg" width={200} height={50} alt="Aviv BP Helper official logo"/>
+                <div className={styles.headerLoginContainer}>
+                    <Link className={styles.headerLinkLogin} href="/login">Se connecter</Link>
+                    <Link className={styles.headerLinkSignup} href="/signup">S'inscrire</Link>
+                </div>
+            </header>
+            <section className={styles.section}>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+                <h1 className={styles.title}>Cher AVIVer, bienvenue ! 👏🎉</h1>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+                <div className={styles.pitch}>
+                    <h2 className={styles.headerTwo}>Vos besoins impliquent-ils de transformer vos Google Sheets en usine à gaz ? 🤔</h2>
+                    <p>Des solutions existent ! Avec <strong>Aviv SP Helper</strong>, simplifiez votre quotidien en adoptant la puissance
+                        des
+                        technologies web du XXIe siècle, spécifiquement customisées pour vos besoins.</p>
+                </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+                <div className={styles.loginContainer}>
+                    <Link className={styles.login} href="/login">Se connecter</Link>
+                    <Link className={styles.signup} href="/signup">S'inscrire</Link>
+                </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
+                <div className={styles.cardsContainer}>
+                    <h2 className={styles.headerTwo}>Des fonctionnalités étonnamment innovantes 🚀</h2>
+                    <div className={styles.card}>
+                        <h3>Coeffective</h3>
+                        <p>Planifiez la mise-à-jour de Google Sheets avec des rapports SF MA et SF GSL. Avec
+                            une fréquence élevée allant jusqu'à toutes les 30 minutes. Pour un nombre d'extracts
+                            illimités.
+                            Gratuitement.</p>
+                    </div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+
+                    <div className={styles.card}>
+                        <h3>Suivi de productivité</h3>
+                        <p>Redécouvrez les joies des statistiques de vos équipes sur une interface simple et épurée.
+                            Dites
+                            adieu aux lenteurs de chargement, aux conflits de filtres, et aux dizaines d'onglets
+                            inutiles.
+                            (Pour bientot...)</p>
+                    </div>
+                    <div className={styles.card}>
+                        <h3>Suivi des impayés Aviv</h3>
+                        <p>Retrouvez facilement, sur une seule et même page, toutes les données concernant les impayés
+                            d'un
+                            client donné. Obtenez plus de transparence et de vision sur ce sujet opaque. (Pour
+                            bientôt...)</p>
+                    </div>
+                </div>
+
+                <div className={styles.suggestionContainer}>
+                    <h2 className={styles.headerTwo}>Un projet en constante évolution 🌱</h2>
+                    <p>Avez-vous des idées en tête ? Cela pourrait peut-être constituer une prochaine fonctionnalité de
+                        ce
+                        projet ! N'hésitez pas à contacter Alex de l'équipe Sales Performance pour en discuter.</p>
+                </div>
+            </section>
+            <footer className={styles.footer}>
+                <p className={styles.credits}>Fait avec ♥ par Alex M.K.</p>
+            </footer>
+        </main>
+    );
 }
