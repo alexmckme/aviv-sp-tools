@@ -1,0 +1,59 @@
+.main {
+    border: 1px solid #510bdc;
+    background-color: white;
+    margin: 30px;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 20px 0 0 0;
+    /*border: 1px solid red*/
+}
+
+.button {
+    text-decoration: none;
+    font-weight: 700;
+    padding: 10px 15px;
+    color: white;
+    background-color: #510bdc;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.5s;
+    margin: 0 0 30px 0;
+}
+
+.button:hover {
+    background-color: #220062;
+    cursor: pointer;
+}
+
+.homeLink {
+    font-size: 0.8rem;
+}
+
+
+@media (min-width: 481px) {
+    .main {
+        max-width: 378px;
+        margin: 30px auto;
+    }
+}
+
+@media (min-width: 769px) {
+    .main {
+        font-size: 1.1rem;
+        max-width: 450px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .main {
+        margin: 50px auto;
+    }
+}

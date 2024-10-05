@@ -6,7 +6,7 @@ export default function Home() {
     return (
         <main className={styles.main}>
             <header className={styles.header}>
-                <Image src="/logo-brand-main.svg" width={200} height={50} alt="Aviv BP Helper official logo"/>
+                <a href="/" className={styles.logoLinkContainer}><Image src="/logo-brand-main.svg" width={200} height={50} alt="Aviv BP Helper official logo"/></a>
                 <div className={styles.headerLoginContainer}>
                     <Link className={styles.headerLinkLogin} href="/login">Se connecter</Link>
                     <Link className={styles.headerLinkSignup} href="/signup">S'inscrire</Link>

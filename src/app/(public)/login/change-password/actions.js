@@ -2,7 +2,6 @@
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
-
 import { createClient } from '@/utils/supabase/server'
 
 export async function changePassword(formData) {
@@ -11,7 +10,7 @@ export async function changePassword(formData) {
     // type-casting here for convenience
     // in practice, you should validate your inputs
     const data = {
-        password: formData.get('email')
+        password: formData.get('password')
     }
 
     const { error } = await supabase.auth.updateUser(data)
@@ -21,5 +20,5 @@ export async function changePassword(formData) {
     }
 
     revalidatePath('/', 'layout')
-    redirect('/')
+    redirect('/main')
 }

@@ -16,7 +16,7 @@ export async function recoverPassword(formData) {
 
     const { error } = await supabase.auth.resetPasswordForEmail(
         data.email,
-        {redirectTo: "/login/change-password"}
+        {redirectTo: "https://aviv-sp-tools.vercel.app/login/change-password"}
     )
 
     if (error) {

@@ -11,15 +11,22 @@ export async function signup(formData) {
     // in practice, you should validate your inputs
     const data = {
         email: formData.get('email'),
-        password: formData.get('password')
+        password: formData.get('password'),
+        options: {
+            emailRedirectTo: 'https://aviv-sp-tools.vercel.app/signup/welcome'
+        }
     }
 
     const { error } = await supabase.auth.signUp(data)
 
     if (error) {
-        redirect('/error')
+        if (error.code === "user_already_exists") {
+            redirect("/signup/?error=true&type=existing-user")
+        } else {
+            redirect('/signup/?error=true')
+        }
     }
 
     revalidatePath('/', 'layout')
-    redirect('/')
+    redirect('/signup/confirm')
 }

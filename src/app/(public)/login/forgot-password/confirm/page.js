@@ -1,7 +1,7 @@
 export default function ConfirmationPage() {
     return (
         <div>
-            Veuillez vérifier vos mails !
+            Signup : veuillez vérifier vos mails !
         </div>
     )
 }
