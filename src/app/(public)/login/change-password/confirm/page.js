@@ -5,8 +5,9 @@ export default function ConfirmationPage() {
     return (
         <main className={styles.main}>
             <style>{'body {background-color: #510bdc}'}</style>
-            <h1>Veuillez vérifier vos mails !</h1>
-            <p>Si l'adresse mail que vous avez saisie est associée à un compte, vous avez reçu un lien pour réinitialiser votre mot de passe. Veuillez vérifier votre boîte de réception ainsi que dans les spams !</p>
+            <h1>Mot de passe modifié !</h1>
+            <p>Vous pouvez désormais vous connecter avec votre adresse mail habituelle et votre nouveau mot de passe.</p>
+            <Link className={styles.button} href="/login">Se connecter</Link>
             <Link className={styles.homeLink} href="/">Retour à l'accueil</Link>
         </main>
     )

@@ -2,7 +2,6 @@
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
-
 import { createClient } from '@/utils/supabase/server'
 
 export async function recoverPassword(formData) {
@@ -21,9 +20,9 @@ export async function recoverPassword(formData) {
 
     if (error) {
         console.error(error)
-        redirect('/error')
+        redirect('/login/forgot-password/?error=true')
     }
 
-    revalidatePath('/login/change-password', 'layout')
+    revalidatePath('/', 'layout')
     redirect('/login/forgot-password/confirm')
 }

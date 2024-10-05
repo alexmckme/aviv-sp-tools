@@ -30,15 +30,17 @@
     margin: 23px 0 0 0;
     display: flex;
     align-items: center;
+    font-size: 0.9em;
 }
 
 .inputContainer label {
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .inputContainer input {
     flex-grow: 1;
-    margin-left: 5px;
+    margin-left: 10px;
     min-height: 35px;
     border-radius: 7px;
     border: 2px solid darkgray;
@@ -95,6 +97,10 @@
     .main {
         max-width: 378px;
         margin: 30px auto;
+    }
+
+    .inputContainer {
+        font-size: 1em;
     }
 }
 

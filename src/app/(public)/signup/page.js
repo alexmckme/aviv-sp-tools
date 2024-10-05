@@ -22,11 +22,11 @@ export default function SignupPage({searchParams}) {
                     <h1 className={styles.title}>Créez un nouveau compte</h1>
                     <form className={styles.form}>
                         <div className={styles.inputContainer}>
-                            <label htmlFor="email">E-mail :</label>
+                            <label htmlFor="email">E-mail</label>
                             <input id="email" name="email" type="email" placeholder="Ex : dupont@exemple.com" required/>
                         </div>
                         <div className={styles.inputContainer}>
-                            <label htmlFor="password">Mot de passe :</label>
+                            <label htmlFor="password">Mot de passe</label>
                             <input id="password" name="password" type="password" title="Le mot de passe doit contenir au minimum 8 caractères, dont 1 majuscule, 1 minuscule, 1 chiffre, et 1 caractère spécial." pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s])\S{8,}$" placeholder="Ex : ********" required/>
                         </div>
                         <button className={styles.button} formAction={signup}>S'inscrire</button>
