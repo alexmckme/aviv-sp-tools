@@ -22,7 +22,10 @@ export async function signup(formData) {
     if (error) {
         if (error.code === "user_already_exists") {
             redirect("/signup/?error=true&type=existing-user")
+        } else if (error.code === "weak_password") {
+            redirect("/signup/?error=true&type=weak-password")
         } else {
+            console.error(error)
             redirect('/signup/?error=true')
         }
     }

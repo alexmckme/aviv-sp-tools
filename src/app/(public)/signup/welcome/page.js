@@ -7,7 +7,7 @@ export default function SignupWelcomePage() {
         <main className={styles.main}>
             <style>{'body {background-color: #510bdc}'}</style>
             <h1>Inscription confirmée !</h1>
-            <p>Merci pour votre inscription ! Vous pouvez désormais vous connecter avec vos identifiants.</p>
+            <p>Merci pour votre inscription ! Vous êtes connecté et pourrez désormais vous connecter avec vos identifiants.</p>
             <Link className={styles.button} href="/login">Se connecter</Link>
             <Link className={styles.homeLink} href="/">Retour à l'accueil</Link>
         </main>
