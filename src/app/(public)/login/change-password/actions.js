@@ -17,9 +17,9 @@ export async function changePassword(formData) {
 
     if (error) {
         if (error.code === "same_password") {
-            redirect("/signup/change-password/?error=true&type=same-password")
+            redirect("/login/change-password/?error=true&type=same-password")
         } else if (error.code === "weak_password") {
-            redirect("/signup/change-password/?error=true&type=weak-password")
+            redirect("/login/change-password/?error=true&type=weak-password")
         } else {
             console.error(error)
             redirect('/login/change-password/?error=true')
