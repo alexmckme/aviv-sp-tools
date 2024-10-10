@@ -16,8 +16,14 @@ export async function changePassword(formData) {
     const { error } = await supabase.auth.updateUser(data)
 
     if (error) {
-        console.error(error)
-        redirect('/login/change-password/?error=true')
+        if (error.code === "same_password") {
+            redirect("/signup/?error=true&type=same-password")
+        } else if (error.code === "weak_password") {
+            redirect("/signup/?error=true&type=weak-password")
+        } else {
+            console.error(error)
+            redirect('/login/change-password/?error=true')
+        }
     }
 
     revalidatePath('/', 'layout')

@@ -6,6 +6,7 @@ import ChangePasswordForm from "@/components/ChangePasswordForm";
 export default function ChangePasswordPage({searchParams}) {
 
     const changeError = searchParams?.error
+    const type = searchParams?.type
 
     return (
         <main className={styles.main}>
@@ -26,7 +27,9 @@ export default function ChangePasswordPage({searchParams}) {
                         buttonStyle={styles.button}
                     />
 
-                        {changeError && <p className={styles.error}>Une erreur s'est produite, veuillez réessayer.</p>}
+                    {changeError && (type === "same-password") && <p className={styles.error}>Le nouveau mot de passe doit être différent du mot de passe actuel, veuillez réessayer.</p>}
+                    {changeError && (type === "weak-password") && <p className={styles.error}>Assurez-vous que le mot de passe contienne au minimum 8 caractères, dont 1 majuscule, 1 minuscule, 1 chiffre, et 1 caractère spécial.</p>}
+                    {changeError && (type === undefined) && <p className={styles.error}>Une erreur s'est produite, veuillez réessayer.</p>}
                 </div>
             </section>
         </main>
