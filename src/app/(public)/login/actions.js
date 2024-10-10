@@ -10,8 +10,8 @@ export async function login(formData) {
     // type-casting here for convenience
     // in practice, you should validate your inputs
     const data = {
-        email: formData.get('email'),
-        password: formData.get('password')
+        email: formData?.email,
+        password: formData?.password
     }
 
     const { error } = await supabase.auth.signInWithPassword(data)

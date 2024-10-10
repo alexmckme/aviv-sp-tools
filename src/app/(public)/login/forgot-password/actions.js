@@ -10,7 +10,7 @@ export async function recoverPassword(formData) {
     // type-casting here for convenience
     // in practice, you should validate your inputs
     const data = {
-        email: formData.get('email')
+        email: formData?.email
     }
 
     const { error } = await supabase.auth.resetPasswordForEmail(

@@ -10,7 +10,7 @@ export async function changePassword(formData) {
     // type-casting here for convenience
     // in practice, you should validate your inputs
     const data = {
-        password: formData.get('password')
+        password: formData?.password
     }
 
     const { error } = await supabase.auth.updateUser(data)

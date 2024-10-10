@@ -1,7 +1,7 @@
-import {recoverPassword} from './actions'
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import ForgotPaswordForm from "@/components/ForgotPaswordForm";
 
 export default function ForgotPasswordPage({searchParams}) {
 
@@ -19,12 +19,12 @@ export default function ForgotPasswordPage({searchParams}) {
                 <hr/>
                 <div>
                     <h1 className={styles.title}>Réinitialisez votre mot de passe</h1>
-                    <form className={styles.form}>
-                        <div className={styles.inputContainer}>
-                            <label htmlFor="email">E-mail</label>
-                            <input id="email" name="email" type="email" placeholder="Ex : dupont@exemple.com" required/>
-                        </div>
-                        <button className={styles.button} formAction={recoverPassword}>Obtenir un lien de connexion</button>
+
+                    <ForgotPaswordForm
+                        formStyle={styles.form}
+                        inputContainerStyle={styles.inputContainer}
+                        buttonStyle={styles.button}
+                    />
 
                         {resetError && <p className={styles.error}>Une erreur s'est produite, veuillez réessayer.</p>}
 
@@ -34,7 +34,6 @@ export default function ForgotPasswordPage({searchParams}) {
                             <Link href="/login">Se connecter</Link>
                             <Link href="/signup">Créer un compte</Link>
                         </div>
-                    </form>
                 </div>
             </section>
         </main>
