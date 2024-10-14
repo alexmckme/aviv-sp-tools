@@ -1,0 +1,124 @@
+.header {
+    display: flex;
+    justify-content: end;
+    padding: 0.6rem 1rem;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    box-shadow: rgba(166, 166, 166, 0.4) 0px 8px 24px;
+}
+
+.sidebarToggle {
+    position: fixed;
+    background: transparent;
+    left: 1rem;
+    top: 1rem;
+    border-color: transparent;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.sidebarToggle span {
+    font-size: 2rem;
+}
+
+.openedSidebarToggle {
+    color: white;
+}
+
+
+.navigationBar {
+    width: 320px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #4406c0;
+    height: 100%;
+    overflow-x: hidden;
+    transition: 0.15s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: rgba(134, 134, 134, 0.5) 8px 0px 24px;
+}
+
+.navigationBar hr {
+    width: 100%;
+    border: 1px dashed white;
+}
+
+.navOpen {
+    left: 0;
+}
+
+.navClosed {
+    left: -325px;
+}
+
+
+.links {
+    display: block;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    padding: 1rem 1.5rem;
+    transition: all 0.1s linear;
+    cursor: pointer;
+}
+
+.links:hover {
+    padding-left: 1.75rem;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.footer button {
+    padding: 10px;
+    background-color: #430ba4;
+    color: #d3d3d0;
+    border-radius: 7px;
+    transition: all 0.1s linear;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.footer button:hover {
+    color: #071a7a;
+    background-color: white;
+    border: 2px solid #071a7a;
+}
+
+.emptySpaceTop {
+    height: 50px;
+}
+
+
+@media (min-width: 769px) {
+
+    .navigationBar {
+        position: static;
+        height: 100vh;
+        flex-shrink: 0;
+    }
+
+    .navClosed {
+        left: 0;
+    }
+
+    .sidebarToggle {
+        display: none;
+    }
+
+    .emptySpaceTop {
+        height: 20px;
+    }
+
+    .header {
+        display: none;
+    }
+}

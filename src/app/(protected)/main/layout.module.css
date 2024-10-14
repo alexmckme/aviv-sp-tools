@@ -1,0 +1,10 @@
+.mainSection {
+    padding: 0px 25px;
+    margin-top: 20px;
+}
+
+@media (min-width: 769px) {
+    .wrapper {
+        display: flex;
+    }
+}
