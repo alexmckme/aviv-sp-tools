@@ -1,0 +1,14 @@
+.loadingWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+@media (min-width: 769px) {
+
+    .loadingWrapper {
+        height: 95vh;
+    }
+}
