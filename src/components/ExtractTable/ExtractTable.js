@@ -1,17 +1,19 @@
 import React from 'react';
 import ExtractRow from "@/components/ExtractRow";
+import styles from "./ExtractTable.module.css";
 
 function ExtractTable({ gsheetFile, gsheetExtractsList }) {
 
 
   return (
       <tr>
-        <td colSpan={100}>
-          <table>
+        <td colSpan={5} className={styles.tdWrapper}>
+          <table className={styles.table}>
             <thead>
             <tr>
               <th scope="col">Date de création</th>
               <th scope="col">Lien onglet</th>
+              <th scope="col">Type</th>
               <th scope="col">Extract ID</th>
               <th scope="col">Fréquence de refresh</th>
               <th scope="col">Heure début</th>

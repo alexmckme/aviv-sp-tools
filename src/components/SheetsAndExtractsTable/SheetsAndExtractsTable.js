@@ -1,20 +1,21 @@
 import React from 'react';
 import Fragment from "react";
 import SheetTableRow from "@/components/SheetTableRow";
+import styles from "./SheetsAndExtractsTable.module.css"
 
 function SheetsAndExtractsTable({listOfGsheets, listOfExtracts, listOfGsheetsMoreInfo}) {
 
     return (
         <>
-            <table>
+            <table className={styles.table}>
                 <thead>
-                <tr>
+                <tr className={styles.mainHeader}>
                     <th scope="col">Date de création</th>
-                    <th scope="col">Lien</th>
+                    <th scope="col">Lien Gsheet</th>
                     <th scope="col">Nom du fichier</th>
                     {/*<th scope="col">Modifier</th>*/}
-                    <th scope="col">Supprimer</th>
                     <th scope="col">Détails</th>
+                    <th scope="col">Supprimer</th>
                 </tr>
                 </thead>
 

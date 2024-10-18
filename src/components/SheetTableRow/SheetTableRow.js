@@ -20,15 +20,17 @@ function SheetTableRow({ formattedGsheetCreationDate, gsheetFile, gsheetExtracts
                     <td>{gsheetFile.name}</td>
                     {/*<td><span className="material-symbols-outlined">edit</span></td>*/}
                     <td>
-                        <DeleteCoeffectiveGsheetButton gsheetFile={gsheetFile} setIsSheetRowDeleted={setIsSheetRowDeleted} gsheetExtractsList={gsheetExtractsList}/>
-
-                    </td>
-                    <td>
                         <button onClick={() => {
                             setShowExtracts(!showExtracts);
                         }}><span
                             className="material-symbols-outlined">{showExtracts ? "collapse_all" : "expand_all"}</span>
                         </button>
+                    </td>
+                    <td>
+                        <DeleteCoeffectiveGsheetButton gsheetFile={gsheetFile}
+                                                       setIsSheetRowDeleted={setIsSheetRowDeleted}
+                                                       gsheetExtractsList={gsheetExtractsList}/>
+
                     </td>
                 </tr>
 

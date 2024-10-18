@@ -1,0 +1,13 @@
+.textWrapper {
+    box-sizing: border-box;
+    border: 3px solid #510bdc;
+    width: 100%;
+    background-color: white;
+    color: black;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.textWrapper h1 {
+    margin-top: 0;
+}

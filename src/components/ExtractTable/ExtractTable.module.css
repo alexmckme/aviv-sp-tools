@@ -1,0 +1,54 @@
+.table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
+
+.table thead {
+    color: #868686;
+}
+
+.table tbody {
+    color: #3b3b3b;
+}
+
+.table th:nth-child(1) {
+    width: 180px;
+}
+
+.table th:nth-child(2) {
+    width: 60px;
+}
+
+.table th:nth-child(3) {
+    width: 100px;
+}
+
+.table th:nth-child(5) {
+    width: 180px;
+}
+
+.table th:nth-child(6) {
+    width: 100px;
+}
+
+.table th:nth-child(7) {
+    width: 100px;
+}
+
+.table th:nth-child(8) {
+    width: 180px;
+}
+
+.table th:nth-child(9) {
+    width: 90px;
+}
+
+.table th, .table td {
+    padding: 5px;
+    text-align: center;
+    border-top: 1px solid #b6b6b6;
+    border-bottom: 1px solid #b6b6b6;
+}

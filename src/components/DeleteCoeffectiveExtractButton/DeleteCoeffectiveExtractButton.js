@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import DeleteConfirmationModal from "@/components/DeleteConfirmationModal/DeleteConfirmationModal";
+import DeleteExtractConfirmationModal from "@/components/DeleteExtractConfirmationModal";
 
 function DeleteCoeffectiveExtractButton({ gsheetFile, extract, setIsExtractRowHidden }) {
 
@@ -8,7 +8,7 @@ function DeleteCoeffectiveExtractButton({ gsheetFile, extract, setIsExtractRowHi
 
     return (
         <>
-            {isModalOpen && <DeleteConfirmationModal setIsModalOpen={setIsModalOpen} gsheetFile={gsheetFile} extract={extract} setIsExtractRowHidden={setIsExtractRowHidden}/>}
+            {isModalOpen && <DeleteExtractConfirmationModal setIsModalOpen={setIsModalOpen} gsheetFile={gsheetFile} extract={extract} setIsExtractRowHidden={setIsExtractRowHidden}/>}
             <button onClick={
                 () => {
                     setIsModalOpen(!isModalOpen)
