@@ -1,24 +1,22 @@
 import React from "react"
 import {getListOfGsheets} from "@/utils/helpers/googleInteraction";
+import SheetsAndExtractsTable from "@/components/SheetsAndExtractsTable";
+import {
+    retreiveCoeffectiveExtracts,
+    retrieveCoeffectiveGsheetsMoreInfo
+} from "@/utils/helpers/coeffectiveDatabaseInteraction";
 
 
 export default async function ExtractsManager() {
 
     const listOfGsheets = await getListOfGsheets()
+    const listOfExtracts = await retreiveCoeffectiveExtracts()
+    const listOfGsheetsMoreInfo = await retrieveCoeffectiveGsheetsMoreInfo()
 
     return (
         <>
             <p>Retrouvez ici la liste de tous les Google Sheets créés via Coeffective :</p>
-
-
-            {listOfGsheets.map((gsheetFile) => (
-                <div key={gsheetFile.id}>
-                    <p htmlFor={gsheetFile.id}>{gsheetFile.name} <a
-                        href={`https://docs.google.com/spreadsheets/d/${gsheetFile.id}`}
-                        target={"_blank"}>🔗</a></p>
-                </div>
-            ))}
-
+            <SheetsAndExtractsTable listOfGsheets={listOfGsheets} listOfExtracts={listOfExtracts} listOfGsheetsMoreInfo={listOfGsheetsMoreInfo}/>
         </>
     )
 }

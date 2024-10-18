@@ -1,5 +1,6 @@
 "use server"
 import { createClient } from '@/utils/supabase/server'
+import {revalidatePath} from "next/cache";
 
 
 export async function getUserData() {
@@ -169,4 +170,97 @@ export async function updateTableauToken(userFullName, tokenName, tokenValue) {
             ok: true
         }
     }
+}
+
+export async function retreiveCoeffectiveExtracts() {
+    const supabase = createClient()
+    const userData = await getUserData()
+
+    const {data,error} = await supabase
+        .from("coeffective_extracts")
+        .select("*")
+        .eq("user_id", userData.id)
+        .order("created_at", {ascending: true})
+
+    if (error) {
+        console.error(error)
+    }
+
+    if (data) {
+        return data
+    }
+
+}
+
+export async function retrieveCoeffectiveGsheetsMoreInfo() {
+    const supabase = createClient()
+    const userData = await getUserData()
+
+    const {data,error} = await supabase
+        .from("coeffective_updatetabs")
+        .select("*")
+        .eq("user_id", userData.id)
+        .order("created_at", {ascending: true})
+
+    if (error) {
+        console.error(error)
+    }
+
+    if (data) {
+        console.log(data)
+        return data
+    }
+
+}
+
+export async function deleteCoeffectiveExtractFromDB(gsheet_id, onglet_id) {
+    const supabase = createClient()
+    const userData = await getUserData()
+
+    const { data, error } = await supabase
+        .from('coeffective_extracts')
+        .delete()
+        .eq('gsheet_id', gsheet_id)
+        .eq("onglet_id", onglet_id)
+
+    if (error) {
+        console.error(error)
+    }
+}
+
+export async function deleteCoeffectiveGsheetFromDB(gsheet_id) {
+    const supabase = createClient()
+    const userData = await getUserData()
+
+    const {data, error} = await supabase
+        .from("coeffective_updatetabs")
+        .delete()
+        .eq("gsheet_id", gsheet_id)
+
+    if (error) {
+        console.error(error)
+    }
+}
+
+export async function deleteAllExtractsOfGsheetFromDB(gsheet_id, gsheetExtractsList) {
+    const supabase = createClient()
+    const userData = await getUserData()
+
+    // gsheetExtractsList est un array d'objets contenant les infos des extracts pour un gsheet_id donné.
+    // On suppose ici qu'on a déjà cet array et que l'argument peut tout de suite être passé dans cette fonction.
+
+    gsheetExtractsList.map(async (extract) => {
+
+        const {data, error} = await supabase
+            .from("coeffective_extracts")
+            .delete()
+            .eq("gsheet_id", gsheet_id)
+            .eq("onglet_id", extract.onglet_id)
+
+        if (error) {
+            console.error(error)
+        }
+    })
+
+
 }

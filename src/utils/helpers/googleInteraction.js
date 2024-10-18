@@ -186,4 +186,47 @@ export async function getListOfGsheets() {
 
 }
 
+export async function deleteTabFromGsheet(fileId, tabId) {
+
+    const autorisation = await authorize()
+    const gsheet = google.sheets({version: "v4", auth: autorisation})
+
+    const fileMetaData = {
+        spreadsheetId: fileId
+    }
+
+    try {
+        const res = await gsheet.spreadsheets.batchUpdate({
+            spreadsheetId: fileMetaData.spreadsheetId,
+            requestBody: {
+                requests: [{
+                    deleteSheet: {
+                        sheetId: Number(tabId),
+                    }
+                }]
+            }
+        })
+
+    } catch (err) {
+        throw(err)
+    }
+
+}
+
+export async function deleteGsheet(fileId) {
+
+    const autorisation = await authorize()
+    const drive = google.drive({version: 'v3', auth: autorisation})
+
+    try {
+        const res = await drive.files
+            .delete({
+                fileId: fileId
+            })
+    } catch (err) {
+        throw(err)
+    }
+
+}
+
 

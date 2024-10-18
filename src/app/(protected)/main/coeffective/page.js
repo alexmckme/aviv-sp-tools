@@ -1,4 +1,3 @@
-import PageProtection from "@/components/PageProtection";
 import GoogleDriveChecker from "@/components/GoogleDriveChecker";
 
 export default function CoeffectiveMain() {
@@ -6,6 +5,7 @@ export default function CoeffectiveMain() {
 
     return (
         <div>
+            <GoogleDriveChecker/>
             <h1>Coeffective</h1>
             <h2>Guide rapide</h2>
             <p>Coeffective est une solution spécialement pensée pour les Business Analysts de la Sales Performance, leur
@@ -19,8 +19,6 @@ export default function CoeffectiveMain() {
             <p><a href="/main/coeffective/manage-tableau-token">Gérer le token de connexion Tableau</a></p>
             <p><a href="/main/coeffective/extracts">Gérer les fichiers Google Sheets et imports existants</a></p>
             <p><a href="/main/coeffective/drive">Accéder au dossier Google Drive</a></p>
-            <PageProtection/>
-            <GoogleDriveChecker/>
         </div>
     )
 }
