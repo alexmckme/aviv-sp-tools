@@ -5,7 +5,7 @@ import { checkAndCreateDriveFolder } from "@/utils/helpers/googleInteraction";
 
 
 
-async function GoogleDriveChecker() {
+async function GoogleDriveChecker({ showMessage }) {
   const supabase = createClient()
 
   async function getUserEmail(supabaseClient) {
@@ -44,17 +44,28 @@ async function GoogleDriveChecker() {
       .select("*")
       .eq("email", currentUserEmail)
 
+  let driveId
+
   if (error) {
     console.error(error)
   } else if (data[0] === undefined) {
-    const newDriveId = await checkAndCreateDriveFolder(currentUserEmail)
-    const addUserToTable = await addCoeffectiveUser(supabase, currentUserData, newDriveId)
-    console.log(`Successfully created and shared folder to ${currentUserEmail}, ID ${newDriveId}`)
+    driveId = await checkAndCreateDriveFolder(currentUserEmail)
+    const addUserToTable = await addCoeffectiveUser(supabase, currentUserData, driveId)
+    console.log(`Successfully created and shared folder to ${currentUserEmail}, ID ${driveId}`)
   } else if (data[0]) {
     console.log("User's drive was already created")
+    driveId = data[0].drive_id
   }
 
-  return <></>;
+
+  return (
+      <>
+        {showMessage &&
+            <p>Un dossier Google Drive a été créé et vous a été partagé sur votre adresse de connexion :
+              👉 <strong><a href={`https://drive.google.com/drive/folders/${driveId}`}>Lien d'accès direct</a></strong> 👈
+            </p>}
+      </>
+  );
 }
 
 export default GoogleDriveChecker;

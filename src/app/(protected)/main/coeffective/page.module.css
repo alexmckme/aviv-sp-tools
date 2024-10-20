@@ -1,0 +1,18 @@
+.sectionWrapper {
+    box-sizing: border-box;
+    border: 3px solid #510bdc;
+    width: 100%;
+    background-color: white;
+    color: black;
+    padding: 25px;
+    border-radius: 10px;
+
+}
+
+.sectionWrapper + .sectionWrapper {
+    margin: 25px 0;
+}
+
+.sectionWrapper h1, .sectionWrapper h2 {
+    margin-top: 0;
+}

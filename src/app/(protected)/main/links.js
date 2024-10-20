@@ -1,10 +1,9 @@
 export const coeffectiveLinks = {
     mainCategory: {label: "Coeffective", href: "/main/coeffective", googleIcon:"rocket_launch"},
     subCategories: [
-        {label: "Nouvel import d'extract", href: "/main/coeffective/new"},
-        {label: "Configuration Token Tableau", href: "/main/coeffective/manage-tableau-token"},
-        {label: "Gestion des Google Sheets et imports", href: "/main/coeffective/extracts"},
-        {label: "Accès dossier Google Drive", href: "/main/coeffective/drive"}
+        {label: "Nouvel import d'extract", href: "/main/coeffective/new", tag: "Link"},
+        {label: "Configuration Token Tableau", href: "/main/coeffective/manage-tableau-token", tag: "Link" },
+        {label: "Gestion des Google Sheets et imports", href: "/main/coeffective/extracts", tag: "a"},
     ]
 }
 

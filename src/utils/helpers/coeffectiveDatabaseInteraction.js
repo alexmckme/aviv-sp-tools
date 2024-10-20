@@ -64,6 +64,7 @@ export async function createNewCoeffectiveExtractSF(chosenSystem, salesforceRepo
     }
 
     if (data) {
+        revalidatePath("/main/coeffective/extracts", "page")
         return {
             data: data,
             ok: true
@@ -96,6 +97,7 @@ export async function createNewCoeffectiveExtractTableau(datasourceName, gsheetI
     }
 
     if (data) {
+        revalidatePath("/main/coeffective/extracts", "page")
         return {
             data: data,
             ok: true
@@ -122,6 +124,7 @@ export async function storeUpdateTabId(gsheetId, majTabId) {
     }
 
     if (data) {
+        revalidatePath("/main/coeffective/extracts", "page")
         console.log(data)
     }
 
@@ -165,6 +168,7 @@ export async function updateTableauToken(userFullName, tokenName, tokenValue) {
     }
 
     if (data) {
+        revalidatePath("/main/coeffective/manage-tableau-token", "page")
         return {
             data: data,
             ok: true
@@ -226,6 +230,8 @@ export async function deleteCoeffectiveExtractFromDB(gsheet_id, onglet_id) {
     if (error) {
         console.error(error)
     }
+
+    // revalidatePath("/main/coeffective/extracts", "page")
 }
 
 export async function deleteCoeffectiveGsheetFromDB(gsheet_id) {
@@ -240,6 +246,8 @@ export async function deleteCoeffectiveGsheetFromDB(gsheet_id) {
     if (error) {
         console.error(error)
     }
+
+    // revalidatePath("/main/coeffective/extracts", "page")
 }
 
 export async function deleteAllExtractsOfGsheetFromDB(gsheet_id, gsheetExtractsList) {
@@ -262,5 +270,5 @@ export async function deleteAllExtractsOfGsheetFromDB(gsheet_id, gsheetExtractsL
         }
     })
 
-
+    // revalidatePath("/main/coeffective/extracts", "page")
 }

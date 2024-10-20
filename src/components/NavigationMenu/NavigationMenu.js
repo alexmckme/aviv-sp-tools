@@ -28,9 +28,17 @@ function NavigationMenu({linksObject}) {
             </div>
             {linksObject.subCategories && <div
                 className={`${styles.sublinksContainer} ${isDropdownOpen ? styles.containerOpen : styles.containerClosed}`}>
-                {linksObject.subCategories.map((item, i) => (
-                    <Link className={styles.sublinks} href={item.href} key={i}>{item.label}</Link>
-                ))}
+                {linksObject.subCategories.map((item, i) => {
+                    if (item.tag === "Link") {
+                        return (
+                            <Link className={styles.sublinks} href={item.href} key={i}>{item.label}</Link>
+                        )
+                    } else if (item.tag === "a") {
+                        return (
+                            <a className={styles.sublinks} href={item.href} key={i}>{item.label}</a>
+                        )
+                    }
+                })}
             </div>}
             <hr/>
         </div>

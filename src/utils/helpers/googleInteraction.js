@@ -48,7 +48,7 @@ export async function shareFolder(jwtClient, userEmail, folderId) {
     const permission =
         {
             type: 'user',
-            role: 'writer',
+            role: 'commenter',
             emailAddress: userEmail, // 'user@partner.com',
         }
 
@@ -134,6 +134,7 @@ export async function createNewGoogleSheet(fileName, driveId) {
             majTabId: majTabId
         }
     } catch (err) {
+        console.error(err)
         throw(err)
     }
 }
