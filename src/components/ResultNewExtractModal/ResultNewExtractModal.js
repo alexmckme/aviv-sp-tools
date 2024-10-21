@@ -5,7 +5,8 @@ import {RemoveScroll} from 'react-remove-scroll';
 
 function ResultNewExtractModal({ status, setStatus }) {
 
-    function handleClick(status) {
+    function handleClick(event) {
+        event.preventDefault()
         setStatus("idle")
     }
 
@@ -34,7 +35,7 @@ function ResultNewExtractModal({ status, setStatus }) {
                         <h2>Une erreur s'est produite 🤔</h2>
                         <p>Avez-vous peut-être renseigné un nom d'onglet qui existait déjà ? Veuillez réessayer.</p>
                         <div>
-                            <button className={styles.confirmButton} onClick={handleClick}>Continuer</button>
+                            <button className={styles.confirmButton} onClick={handleClick}>Réessayer</button>
                         </div>
                     </div>
                 </RemoveScroll>

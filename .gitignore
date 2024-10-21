@@ -27,7 +27,6 @@ yarn-error.log*
 
 # local env files
 .env
-.env
 
 # vercel
 .vercel
@@ -35,3 +34,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/.idea/.gitignore
+/.idea/aviv-sp-tools.iml
+/.idea/modules.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/vcs.xml

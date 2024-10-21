@@ -1,0 +1,26 @@
+@media (min-width: 1280px) {
+    .inputWrapper {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.confirmButton {
+    padding: 12px 30px;
+    background-color: #430ba4;
+    color: #ffffff;
+    border-radius: 7px;
+    transition: all 0.1s linear;
+    border: 2px solid black;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 700;
+    align-self: flex-start;
+    margin: 20px 0;
+}
+
+.confirmButton:hover {
+    color: #071a7a;
+    background-color: white;
+    border: 2px solid #071a7a;
+}

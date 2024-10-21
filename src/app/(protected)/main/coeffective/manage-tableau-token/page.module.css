@@ -1,0 +1,56 @@
+.sectionWrapper {
+    box-sizing: border-box;
+    border: 3px solid #510bdc;
+    width: 100%;
+    background-color: white;
+    color: black;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.sectionWrapper h1 {
+    margin-top: 0;
+}
+
+.description {
+    margin: 25px 0;
+}
+
+.sectionWrapper form fieldset {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    /*align-content: center;*/
+    margin : 25px 0;
+    padding: 15px;
+    border: 2px solid #5311d9;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.sectionWrapper form fieldset label {
+    padding: 10px 10px 10px 0;
+}
+
+.sectionWrapper form fieldset div {
+    padding: 5px 0;
+    font-size: 1.05rem;
+    margin: 10px 0;
+
+}
+
+.sectionWrapper form fieldset legend {
+    padding: 0 10px;
+    background-color: #071a7a;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.sectionWrapper form fieldset input[type=text] {
+    min-width: 300px;
+    padding: 3px;
+    field-sizing: content;
+}
+

@@ -162,6 +162,9 @@ export async function updateTableauToken(userFullName, tokenName, tokenValue) {
         .from("coeffective_users")
         .update(updatedData)
         .eq("id", userData.id)
+        .select()
+
+    console.log(data)
 
     if (error) {
         console.error(error)

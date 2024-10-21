@@ -74,12 +74,12 @@ function NewExtractForm() {
                                 setStatus("error")
                             }
                         }}
-                        catch (error) {
-                            console.log(error)
-                            setStatus("error")
-                        }
+                    catch (error) {
+                        console.log(error)
+                        setStatus("error")
+                    }
 
-                    }}
+                }}
             >
                 <NewExtractFormSystemChoice chosenSystem={chosenSystem} setChosenSystem={setChosenSystem} status={status} />
 

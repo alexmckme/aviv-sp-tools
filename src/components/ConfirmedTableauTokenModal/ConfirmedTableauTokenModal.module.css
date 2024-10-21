@@ -1,0 +1,47 @@
+.bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(1px);
+}
+
+.wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 21;
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #510bdc;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.confirmButton {
+    padding: 12px 30px;
+    background-color: #430ba4;
+    color: #ffffff;
+    border-radius: 7px;
+    transition: all 0.1s linear;
+    border: 2px solid black;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.confirmButton:hover {
+    color: #071a7a;
+    background-color: white;
+    border: 2px solid #071a7a;
+}
+
+.wrapper div {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 30px 0 10px 0;
+}
