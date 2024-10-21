@@ -130,6 +130,7 @@ function NewExtractForm() {
                         existingGsheetId={existingGsheetId}
                         setExistingGsheetId={setExistingGsheetId}
                         status={status}
+                        setStatus={setStatus}
                     />
 
                 }

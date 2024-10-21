@@ -2,6 +2,8 @@ import React from 'react';
 import {retrieveTableauToken} from "@/utils/helpers/coeffectiveDatabaseInteraction";
 import {getListOfGsheets} from "@/utils/helpers/googleInteraction";
 import LoadingSpinner from "@/components/LoadingSpinner";
+import styles from "./NewExtractFormFlamingoInfo.module.css";
+import Link from "next/link";
 
 function NewExtractFormFlamingoInfo({ tableauTokenName, setTableauTokenName, newTableauDatasourceName, setNewTableauDatasourceName, startingHour, setStartingHour, setEndingHour, newGsheetToCreate, setNewGsheetToCreate, newGsheetName, setNewGsheetName, newTabName, setNewTabName, listOfGsheetFiles, setListOfGsheetFiles, existingGsheetId, setExistingGsheetId, status, setStatus }) {
 
@@ -15,25 +17,30 @@ function NewExtractFormFlamingoInfo({ tableauTokenName, setTableauTokenName, new
                 </legend>
                 {tableauTokenName === ""
                     &&
-                    <p onClick={async () => {
+                    <div className={styles.showMoreContainer} onClick={async () => {
+                        setStatus("loading")
                         const retrievedTableauTokenName = await retrieveTableauToken()
                         if (!retrievedTableauTokenName) {
                             setTableauTokenName("None")
                         } else {
                             setTableauTokenName(retrievedTableauTokenName)
                         }
-                    }}>Vérifier maintenant</p>
+                        setStatus("idle")
+                    }}><p>Cliquez ici pour vérifier</p>
+                    </div>
                 }
                 {tableauTokenName === "None"
                     &&
                     <>
-                        <p>Veuillez définir votre token d'accès personnel Tableau : ici</p>
+                        <p>Veuillez définir votre token d'accès personnel Tableau : <Link href={"/main/coeffective/manage-tableau-token"}>ici</Link>.</p>
+                        <p>Plus d'informations disponibles sur la page <Link href={"/main/coeffective/information-tableau"}>guide d'utilisation</Link>.</p>
                     </>
                 }
                 {tableauTokenName !== "None" && tableauTokenName !== ""
                     &&
                     <>
-                        <p>Voici le nom de token actuellement connu de Coeffective : {tableauTokenName}</p>
+                        <p>Voici le nom du token que vous avez configuré, actuellement connu de Coeffective : <strong>{tableauTokenName}</strong></p>
+                        <p>Si ce token est invalide, vous pouvez le reconfigurer de nouveau <Link href={"/main/coeffective/manage-tableau-token"}>ici</Link>.</p>
                     </>
 
                 }
@@ -42,11 +49,11 @@ function NewExtractFormFlamingoInfo({ tableauTokenName, setTableauTokenName, new
                 &&
                 <>
                     <fieldset>
-                        <legend>Saisissez le nom exact de l'extract que vous avez créé, que vous souhaitez
+                        <legend>Saisissez le nom <strong>exact</strong> de l'extract que vous avez créé, que vous souhaitez
                             importer :
                         </legend>
                         <div>
-                            <label htmlFor="new-tableau-datasource-name">Nom exact de la source de donnée
+                            <label htmlFor="new-tableau-datasource-name">Nom <strong>exact</strong> de la source de donnée
                                 :</label>
                             <input
                                 disabled={status === "loading"}
@@ -64,7 +71,7 @@ function NewExtractFormFlamingoInfo({ tableauTokenName, setTableauTokenName, new
                     <fieldset>
                         <legend>Choisissez l'heure de mise à jour souhaitée :</legend>
                         <div>
-                            <label htmlFor="starting-hour">Heure approximative du refresh :</label>
+                            <label htmlFor="starting-hour">Heure approximative souhaitée du refresh :</label>
                             <select
                                 disabled={status === "loading"}
                                 id="starting-hour" value={startingHour} onChange={event => {
@@ -152,7 +159,7 @@ function NewExtractFormFlamingoInfo({ tableauTokenName, setTableauTokenName, new
                                         disabled={status === "loading"}
                                         required={true}
                                         type="text"
-                                        maxlength="50"
+                                        maxLength="50"
                                         id="new-tab-name"
                                         value={newTabName}
                                         onChange={event => {
@@ -169,7 +176,7 @@ function NewExtractFormFlamingoInfo({ tableauTokenName, setTableauTokenName, new
                         &&
                         <>
                             {listOfGsheetFiles.length === 0 &&
-                                (<div onClick={async () => {
+                                (<div className={styles.showMoreContainer} onClick={async () => {
                                     setStatus("loading")
                                     const listOfGsheets = await getListOfGsheets();
                                     setListOfGsheetFiles(listOfGsheets)
@@ -212,6 +219,7 @@ function NewExtractFormFlamingoInfo({ tableauTokenName, setTableauTokenName, new
                                                 disabled={status === "loading"}
                                                 required={true}
                                                 type="text"
+                                                maxLength="50"
                                                 id="new-tab-name"
                                                 value={newTabName}
                                                 onChange={event => {
@@ -220,7 +228,7 @@ function NewExtractFormFlamingoInfo({ tableauTokenName, setTableauTokenName, new
                                             />
                                         </div>
                                     </fieldset>
-                                    <button disabled={status === "loading"}>Valider</button>
+                                    <button className={styles.confirmButton} disabled={status === "loading"}>Valider</button>
                                 </>
                             }
                         </>

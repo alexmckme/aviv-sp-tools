@@ -179,7 +179,7 @@ function NewExtractFormSalesforceInfo({ salesforceReportId, setSalesforceReportI
                                 disabled={status === "loading"}
                                 required={true}
                                 type="text"
-                                maxlength="50"
+                                maxLength="50"
                                 id="new-tab-name"
                                 value={newTabName}
                                 onChange={event => {
@@ -204,7 +204,7 @@ function NewExtractFormSalesforceInfo({ salesforceReportId, setSalesforceReportI
                             setListOfGsheetFiles(listOfGsheets)
                             setStatus("idle")
                         }}>
-                        <p>Afficher la liste des Gsheets existants</p>
+                            <p>Afficher la liste des Gsheets existants</p>
                         </div>)}
                     {listOfGsheetFiles.length!==0 && (
                         <fieldset>
@@ -241,6 +241,7 @@ function NewExtractFormSalesforceInfo({ salesforceReportId, setSalesforceReportI
                                         disabled={status === "loading"}
                                         required={true}
                                         type="text"
+                                        maxLength="50"
                                         id="new-tab-name"
                                         value={newTabName}
                                         onChange={event => {
