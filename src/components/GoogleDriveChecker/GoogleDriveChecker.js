@@ -61,7 +61,7 @@ async function GoogleDriveChecker({ showMessage }) {
   return (
       <>
         {showMessage &&
-            <p>Un dossier Google Drive a été créé et vous a été partagé sur votre adresse de connexion :
+            <p>Un dossier Google Drive a été créé et vous a été partagé à votre adresse de connexion :
               👉 <strong><a href={`https://drive.google.com/drive/folders/${driveId}`}>Lien d'accès direct</a></strong> 👈
             </p>}
       </>

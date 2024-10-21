@@ -9,6 +9,7 @@ import {
 import NewExtractFormSystemChoice from "@/components/NewExtractFormSystemChoice";
 import NewExtractFormSalesforceInfo from "@/components/NewExtractFormSalesforceInfo"
 import NewExtractFormFlamingoInfo from "@/components/NewExtractFormFlamingoInfo";
+import ResultNewExtractModal from "@/components/ResultNewExtractModal";
 
 
 function NewExtractForm() {
@@ -39,42 +40,48 @@ function NewExtractForm() {
                     event.preventDefault()
                     setStatus("loading")
                     const userDriveId = await retrieveDriveId()
-                    if (newGsheetToCreate) {
-                        const newGsheetData = await createNewGoogleSheet(newGsheetName, userDriveId)
-                        const newTabId = await createNewTab(newGsheetData.gsheetId, newTabName)
-                        let newExtractDbId
+                    try {
+                        if (newGsheetToCreate) {
+                            const newGsheetData = await createNewGoogleSheet(newGsheetName, userDriveId)
+                            const newTabId = await createNewTab(newGsheetData.gsheetId, newTabName)
+                            let newExtractDbId
 
-                        if (chosenSystem === "salesforce-ma" || chosenSystem === "salesforce-gsl") {
-                            newExtractDbId = await createNewCoeffectiveExtractSF(chosenSystem, salesforceReportId, newGsheetData.gsheetId, newTabId, frequency, startingHour, endingHour)
-                        } else if (chosenSystem === "flamingo") {
-                            newExtractDbId = await createNewCoeffectiveExtractTableau(newTableauDatasourceName, newGsheetData.gsheetId, newTabId, startingHour, endingHour)
+                            if (chosenSystem === "salesforce-ma" || chosenSystem === "salesforce-gsl") {
+                                newExtractDbId = await createNewCoeffectiveExtractSF(chosenSystem, salesforceReportId, newGsheetData.gsheetId, newTabId, frequency, startingHour, endingHour)
+                            } else if (chosenSystem === "flamingo") {
+                                newExtractDbId = await createNewCoeffectiveExtractTableau(newTableauDatasourceName, newGsheetData.gsheetId, newTabId, startingHour, endingHour)
+                            }
+
+                            if (newExtractDbId.ok) {
+                                setStatus("success")
+                            } else {
+                                setStatus("error")
+                            }
                         }
+                        if (!newGsheetToCreate) {
+                            const newTabId = await createNewTab(existingGsheetId, newTabName)
+                            let newExtractDbId
 
-                        if (newExtractDbId.ok) {
-                            setStatus("success")
-                        } else {
+                            if (chosenSystem === "salesforce-ma" || chosenSystem === "salesforce-gsl") {
+                                newExtractDbId = await createNewCoeffectiveExtractSF(chosenSystem, salesforceReportId, existingGsheetId, newTabId, frequency, startingHour, endingHour)
+                            } else if (chosenSystem === "flamingo") {
+                                newExtractDbId = await createNewCoeffectiveExtractTableau(newTableauDatasourceName, existingGsheetId, newTabId, startingHour, endingHour)
+                            }
+
+                            if (newExtractDbId.ok) {
+                                setStatus("success")
+                            } else {
+                                setStatus("error")
+                            }
+                        }}
+                        catch (error) {
+                            console.log(error)
                             setStatus("error")
                         }
-                    }
-                    if (!newGsheetToCreate) {
-                        const newTabId = await createNewTab(existingGsheetId, newTabName)
-                        let newExtractDbId
 
-                        if (chosenSystem === "salesforce-ma" || chosenSystem === "salesforce-gsl") {
-                            newExtractDbId = await createNewCoeffectiveExtractSF(chosenSystem, salesforceReportId, existingGsheetId, newTabId, frequency, startingHour, endingHour)
-                        } else if (chosenSystem === "flamingo") {
-                            newExtractDbId = await createNewCoeffectiveExtractTableau(newTableauDatasourceName, existingGsheetId, newTabId, startingHour, endingHour)
-                        }
-
-                        if (newExtractDbId.ok) {
-                            setStatus("success")
-                        } else {
-                            setStatus("error")
-                        }
-                    }
-                }}
+                    }}
             >
-                <NewExtractFormSystemChoice chosenSystem={chosenSystem} setChosenSystem={setChosenSystem} />
+                <NewExtractFormSystemChoice chosenSystem={chosenSystem} setChosenSystem={setChosenSystem} status={status} />
 
                 {(chosenSystem==="salesforce-ma" || chosenSystem==="salesforce-gsl")
                     &&
@@ -98,6 +105,7 @@ function NewExtractForm() {
                         existingGsheetId={existingGsheetId}
                         setExistingGsheetId={setExistingGsheetId}
                         status={status}
+                        setStatus={setStatus}
                     />
                 }
 
@@ -127,6 +135,7 @@ function NewExtractForm() {
                 }
 
             </form>
+            {<ResultNewExtractModal status={status} setStatus={setStatus}/>}
 
         </>
 

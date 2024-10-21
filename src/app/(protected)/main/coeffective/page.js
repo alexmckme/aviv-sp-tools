@@ -30,15 +30,15 @@ export default function CoeffectiveMain() {
             </div>
 
             <div className={styles.sectionWrapper}>
-                <h2> Instructions utiles et importantes :</h2>
+                <h2> Informations utiles et importantes :</h2>
                 <h3>Pour créer un import depuis Salesforce :</h3>
                 <ul>
                     <li>Vous aurez besoin de l'ID (18 caractères) du rapport.</li>
                     <li>Les rapports privés ne peuvent pas être importés.</li>
-                    <li>Pour les fréquences de refresh toutes les 30 minutes ou toutes les heures, les mises-à-jour se
+                    <li>Pour les fréquences de refresh toutes les 30 min ou toutes les heures, les mises-à-jour se
                         feront dans l'intervalle horaire renseignée (heure minimale et maximale incluses). Pour la
                         fréquence
-                        quotidienne, "l'heure de début" représentera l'heure de refresh journalière fixée.
+                        quotidienne, l'heure quotidienne de refresh correspondra au premier horaire xx:00 ou xx:30 suite à la configuration de l'import dans l'intervalle horaire que vous aurez sélectionnée.
                     </li>
                     <li>Vous devrez choisir un nom au fichier Google Sheet (si vous en créez un nouveau) et à l'onglet
                         où se
@@ -66,13 +66,14 @@ export default function CoeffectiveMain() {
                 </ul>
                 <h3>Utilisation des imports une fois créés :</h3>
                 <ul>
-                    <li><strong>Le premier import d'extract ne s'effectue qu'à la première exécution de refresh.</strong> Il n'est pas
-                        (encore) possible d'effectuer une exécution manuelle d'un import.
+                    <li><strong>Le premier import d'extract ne s'effectue qu'à la première exécution de refresh.</strong>
                     </li>
                     <li>Les exécutions de refresh se font tous les xx:00 et xx:30, selon la fréquence et l'intervalle
                         que
                         vous avez sélectionnées.
                     </li>
+                    <li><strong>Il n'est pas
+                        (encore) possible d'effectuer une exécution manuelle d'un import.</strong></li>
                     <li>Des fichiers et onglets sont créés dans le drive qui vous a été partagé. Ce drive n'est
                         accessible
                         qu'en tant que "Commentateur". Hormis l'ajout de commentaires, vous ne pourrez donc pas y
@@ -82,7 +83,7 @@ export default function CoeffectiveMain() {
                     <li>Après avoir créé un import, vous pourrez ensuite effectuer des importrange sur vos propres
                         fichiers.
                     </li>
-                    <li>Quand vient l'heure du refresh, les mises-à-jour s'effectuent les uns après les autres sur les
+                    <li>Quand vient l'heure du refresh, les mises-à-jour s'effectuent les unes après les autres sur les
                         Google Sheets du drive partagé. Quand les mises-à-jour sont effectuées pour un fichier donné,
                         l'onglet <em>{`>> Infos Màj Extracts <<`}</em> présente le dernier statut de mise-à-jour de
                         chaque
