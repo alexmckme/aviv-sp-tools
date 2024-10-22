@@ -77,7 +77,7 @@ function TableauTokenForm() {
                 </div>
                 <button className={styles.confirmButton} disabled={status === "loading"}>Valider</button>
             </fieldset>
-            <ConfirmedTableauTokenModal status={status} setStatus={setStatus}/>
+            <ConfirmedTableauTokenModal status={status} setStatus={setStatus} setNewTableauUserFullName={setNewTableauUserFullName} setNewPersonalTableauTokenName={setNewPersonalTableauTokenName} setNewPersonalTableauTokenValue={setNewPersonalTableauTokenValue}/>
         </form>
     )
 }

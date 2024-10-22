@@ -3,11 +3,23 @@ import React from 'react';
 import styles from "./ConfirmedTableauTokenModal.module.css"
 import {RemoveScroll} from 'react-remove-scroll';
 import Link from "next/link";
+import {useRouter} from "next/navigation"
 
-function ConfirmedTableauTokenModal({ status, setStatus }) {
+function ConfirmedTableauTokenModal({ status, setStatus, setNewTableauUserFullName, setNewPersonalTableauTokenName, setNewPersonalTableauTokenValue }) {
+
+  const router = useRouter()
 
   function handleClick(event) {
     event.preventDefault()
+
+    if (status === "success") {
+      setStatus("idle")
+      setNewTableauUserFullName("")
+      setNewPersonalTableauTokenName("")
+      setNewPersonalTableauTokenValue("")
+      router.push("/main/coeffective/manage-tableau-token")
+    }
+
     setStatus("idle")
   }
 

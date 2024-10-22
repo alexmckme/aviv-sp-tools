@@ -2,11 +2,24 @@
 import React from 'react';
 import styles from "./ResultNewExtractModal.module.css"
 import {RemoveScroll} from 'react-remove-scroll';
+import {useRouter} from "next/navigation"
 
-function ResultNewExtractModal({ status, setStatus }) {
+function ResultNewExtractModal({ status, setStatus, setSalesforceReportId, setNewTableauDatasourceName, setNewGsheetName, setNewTabName }) {
+
+    const router = useRouter()
 
     function handleClick(event) {
         event.preventDefault()
+
+        if (status === "success") {
+            setStatus("idle")
+            setSalesforceReportId("")
+            setNewTableauDatasourceName("")
+            setNewGsheetName("")
+            setNewTabName("")
+            router.push("/main/coeffective/new")
+        }
+
         setStatus("idle")
     }
 
@@ -20,9 +33,9 @@ function ResultNewExtractModal({ status, setStatus }) {
                         <h2>Configuration de l'import réussie 🎉</h2>
                         <p>Vous pouvez désormais retrouver votre nouvel import sur <a href="/main/coeffective/extracts">cette page</a>.</p>
                         <div>
-                            <a href="/main/coeffective/new">
+                            <div>
                                 <button className={styles.confirmButton} onClick={handleClick}>Créer un nouvel import</button>
-                            </a>
+                            </div>
                         </div>
                     </div>
                 </RemoveScroll>

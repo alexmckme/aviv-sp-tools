@@ -81,7 +81,7 @@ function NewExtractForm() {
 
                 }}
             >
-                <NewExtractFormSystemChoice chosenSystem={chosenSystem} setChosenSystem={setChosenSystem} status={status} />
+                <NewExtractFormSystemChoice chosenSystem={chosenSystem} setChosenSystem={setChosenSystem} status={status} setStartingHour={setStartingHour} setEndingHour={setEndingHour}/>
 
                 {(chosenSystem==="salesforce-ma" || chosenSystem==="salesforce-gsl")
                     &&
@@ -136,7 +136,7 @@ function NewExtractForm() {
                 }
 
             </form>
-            {<ResultNewExtractModal status={status} setStatus={setStatus}/>}
+            {<ResultNewExtractModal status={status} setStatus={setStatus} setSalesforceReportId={setSalesforceReportId} setNewTabName={setNewTabName} setNewTableauDatasourceName={setNewTableauDatasourceName} setNewGsheetName={setNewGsheetName}/>}
 
         </>
 

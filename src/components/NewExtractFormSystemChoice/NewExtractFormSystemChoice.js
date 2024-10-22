@@ -1,6 +1,6 @@
 import React from 'react';
 
-function NewExtractFormSystemChoice({ chosenSystem, setChosenSystem, status}) {
+function NewExtractFormSystemChoice({ chosenSystem, setChosenSystem, status, setStartingHour, setEndingHour}) {
 
   return (
       <fieldset>
@@ -43,6 +43,10 @@ function NewExtractFormSystemChoice({ chosenSystem, setChosenSystem, status}) {
                   value="flamingo"
                   checked={chosenSystem === "flamingo"}
                   disabled={status === "loading"}
+                  onClick={() => {
+                      setStartingHour(1)
+                      setEndingHour(2)
+                  }}
                   onChange={event => {
                       setChosenSystem(event.target.value)
                   }}
