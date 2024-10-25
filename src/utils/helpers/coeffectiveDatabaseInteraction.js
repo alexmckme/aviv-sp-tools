@@ -275,3 +275,49 @@ export async function deleteAllExtractsOfGsheetFromDB(gsheet_id, gsheetExtractsL
 
     // revalidatePath("/main/coeffective/extracts", "page")
 }
+
+export async function getSignedURLImagesFromBucket(bucketName, folderName) {
+    const supabase = createClient()
+
+    // const {data, error} = await supabase
+    //     .storage
+    //     .from("content-bucket")
+    //     .createSignedUrls(["tableau-configuration-guide/I3.png"], 3600)
+
+    const { data, error } = await supabase
+        .storage
+        .from(bucketName)
+        .list(folderName)
+
+    const imagesList = data.map(e => `${folderName}/${e.name}`)
+
+    const response = await supabase
+        .storage
+        .from(bucketName)
+        .createSignedUrls(imagesList, 3600)
+
+    if (error) {
+        console.error(error)
+    }
+
+    if (response.error) {
+        console.error(response.error)
+    }
+
+    return response
+}
+
+export async function getProtectedContentTemporary(bucketName, fileName) {
+    const supabase = createClient()
+
+    const response = await supabase
+        .storage
+        .from(bucketName)
+        .createSignedUrls(fileName, 3600)
+
+    if (response.error) {
+        console.error(response.error)
+    }
+
+    return response
+}

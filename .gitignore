@@ -39,3 +39,6 @@ next-env.d.ts
 /.idea/modules.xml
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/vcs.xml
+
+# others
+/src/app/(protected)/main/coeffective/information-tableau/hiddenContent.js

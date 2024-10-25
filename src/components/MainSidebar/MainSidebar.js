@@ -24,8 +24,8 @@ function MainSidebar() {
             </button>
             <div className={styles.header}>
                 <Link href="/main"><Image src="/logo-brand-main.svg" width={200}
-                                                                               height={50}
-                                                                               alt="Aviv BP Helper official logo"/></Link>
+                                          height={50}
+                                          alt="Aviv BP Helper official logo"/></Link>
             </div>
 
             <nav className={`${styles.navigationBar} ${isMobileNavOpen ? styles.navOpen : styles.navClosed}`}>
