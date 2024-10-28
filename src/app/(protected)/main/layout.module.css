@@ -1,6 +1,7 @@
 .mainSection {
-    padding: 0px 25px;
+    padding: 0 25px;
     margin-top: 20px;
+    width: 100%;
 }
 
 @media (min-width: 769px) {
