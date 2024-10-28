@@ -1,21 +1,20 @@
-import LogOutButton from "@/components/LogOutButton";
+import React from "react";
+import styles from "./page.module.css"
+import Link from "next/link";
 
 export default async function PrivatePage() {
 
     return (
-        <>
+        <section className={styles.sectionWrapper}>
+            <style>{'body {background-color: #D7E0FFFF}'}</style>
             <div>
                 <h2>Bienvenue sur Aviv SP Helper !</h2>
-                <p>Ce site est conçu afin de vous permettre d'accéder plus facilement à certaines informations, sous une
-                    forme autre que des fichiers Google Sheets ou des rapports Salesforce.</p>
-                <p>Vous y trouverez également une version Web de fichiers de résultats des différentes équipes Customer
-                    Support.</p>
-                <p>Ce projet est une expérimentation, en constante évolution. Les feedbacks sont bienvenus !</p>
-                <h3>Accès rapide :</h3>
-                <p><a href="/main/coeffective">Coeffective</a></p>
-                <p><a href="/main/customer-support">Suivis Customer Support</a></p>
+                <p>Si vous êtes Business Analyst à la Sales Performance et que c'est la première fois que vous voyez
+                    cette page, cliquez ici 😉 : </p>
+                <p className={styles.importantLink}>👉 <Link href="/main/coeffective">Coeffective</Link> 👈</p>
+                <hr/>
+                <p><em>Ce projet est une expérimentation, en constante évolution. Les feedbacks sont bienvenus. Merci !</em></p>
             </div>
-            <LogOutButton/>
-        </>
+        </section>
     )
 }

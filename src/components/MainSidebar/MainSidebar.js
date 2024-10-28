@@ -39,8 +39,8 @@ function MainSidebar() {
 
 
                     <NavigationMenu linksObject={coeffectiveLinks}/>
-                    <NavigationMenu linksObject={customerSupportLinks}/>
-                    <NavigationMenu linksObject={cashCollectionLinks}/>
+                    {/*<NavigationMenu linksObject={customerSupportLinks}/>*/}
+                    {/*<NavigationMenu linksObject={cashCollectionLinks}/>*/}
 
 
                 </div>

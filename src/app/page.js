@@ -39,16 +39,16 @@ export default function Home() {
                     </div>
 
 
-                    <div className={styles.card}>
-                        <h3>Suivi de productivité</h3>
+                    <div className={styles.cardSoon}>
+                        <h3>Suivi de productivité (en cours de développement)</h3>
                         <p>Redécouvrez les joies des statistiques de vos équipes sur une interface simple et épurée.
                             Dites
                             adieu aux lenteurs de chargement, aux conflits de filtres, et aux dizaines d'onglets
                             inutiles.
                             (Pour bientot...)</p>
                     </div>
-                    <div className={styles.card}>
-                        <h3>Suivi des impayés Aviv</h3>
+                    <div className={styles.cardSoon}>
+                        <h3>Suivi des impayés Aviv (en cours de développement)</h3>
                         <p>Retrouvez facilement, sur une seule et même page, toutes les données concernant les impayés
                             d'un
                             client donné. Obtenez plus de transparence et de vision sur ce sujet opaque. (Pour
