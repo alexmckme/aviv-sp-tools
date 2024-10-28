@@ -1,11 +1,14 @@
 .mainSection {
     padding: 0 25px;
     margin-top: 20px;
-    width: 100%;
 }
 
 @media (min-width: 769px) {
     .wrapper {
         display: flex;
+    }
+
+    .mainSection {
+        width: 100%;
     }
 }
