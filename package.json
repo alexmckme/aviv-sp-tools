@@ -9,20 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@supabase/ssr": "^0.4.1",
-    "@supabase/supabase-js": "^2.44.2",
+    "@supabase/ssr": "^0.8.0",
+    "@supabase/supabase-js": "^2.86.2",
     "googleapis": "^140.0.1",
-    "html-react-parser": "^5.1.18",
-    "isomorphic-dompurify": "^2.16.0",
-    "new-component": "^5.0.2",
-    "next": "14.2.4",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-remove-scroll": "^2.6.0",
-    "styled-components": "^6.1.12"
+    "html-react-parser": "^5.2.10",
+    "isomorphic-dompurify": "^2.33.0",
+    "new-component": "^5.0.3",
+    "next": "^14.2.33",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-remove-scroll": "^2.7.2",
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
-    "eslint": "^8",
-    "eslint-config-next": "14.2.4"
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^16.0.7"
   }
 }
